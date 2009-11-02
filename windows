@@ -1,0 +1,3 @@
+== windows tutorials
+# deploy Ruby on Rails apps with Windows 2003 + IIS 6.0 + Mongrel
+Windows(R) is never the ideal platform on which to deploy Ruby on Rails apps. But sometimes you've got to deal with legacy systems.
