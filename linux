@@ -1,4 +1,8 @@
 == Linux administration hacks
+
+## 转换编码
+iconv -f gbk -t utf8 in_file > out_file
+
 ## copy directory
 The following will act like "mv test_dev test" but without deleting the original test_dev :
 cp test_dev/* test
