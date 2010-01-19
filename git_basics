@@ -20,6 +20,12 @@
   git commit -m 'This is the commit message'
   git commit -a -m 'The message'  加参数a可以省掉烦人的git add步骤
 
+  git pull --rebase 可以省后续的merge（有时候会报错.用如下三步解决：）
+
+  git stash
+  git pull --rebase
+  git stash pop
+
 ** git全局设置(这一步本来应该放在最开头)
   git config --global user.name 'Xie, Wei'
   git config --global user.email 'bla@bla.com'
@@ -27,7 +33,10 @@
 * 分支
   git branch my_branch  新建一个分支(必须在有一个commit后才能新建，否则提示not a valid object name)
   git checkout my_branch 把刚建的分支签出准备工作了
-  git branch -D my_branch  删除一个
+  git branch -d my_branch  删除前会检查本分支中的修改有没有合并到master中
+  git branch -D my_branch  直接删除一个
+  git checkout master  回到主分支
+  git merge my_branch  在把其它分支中的内容合并到主分支中
 
 **
   git clone /path/to/new/repo  复制一个远程库。注意：复制命令会自动保存远程的地址，这样下次可以直接pull什么的而不必指明远程地址。
@@ -64,3 +73,7 @@ Setting up a git server (Wow! Another GitHub!) on Ubuntu can be very simple.
 
 That's all needed for setting up a git server on your Ubuntu box. You will soon check out if the files are truly stored onto the git server machine. Try the following in another new directory:
   git clone git@REMOTE_SERVER:example.git
+
+
+** Useful References
+  www.gitready.com  lots of git tips

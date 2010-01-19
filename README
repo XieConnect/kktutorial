@@ -1,3 +1,20 @@
- @description: Tutorials about system configuration, programming hacks
- @author: Wei Xie <XieConnect (at) gmail.com>
- @copyright: Copyright (C) 2009 Xie, Wei
+/**
+ * === Tutorials of system configuration, programming hacks ===
+ * @description Tutorials of system configuration, programming hacks
+ * @copyright Copyright (C) 2009 Xie, Wei
+ * @license Undecided yet
+ * @author Xie, Wei <XieConnect (at) gmail.com>
+ */
+
+
+** linux
+  This is a basic linux introduction based on the Ubuntu and Debian official documents.
+
+** ruby_on_rails
+  Let's ride on Ruby on Rails
+
+** git_basics
+  git is an extremely popular VCS among Ruby gurus.
+
+** windows
+  Sometimes I have to develop (or even deploy) Ruby on Rails apps under the Windows(R) platform.
