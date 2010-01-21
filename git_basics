@@ -1,26 +1,39 @@
 /**
  * === Beginner's Guide to git ===
- * @description This is basically a beginner's guide to git
- * @author Xie, Wei < XieConnect@gmail.com >
- * @license Undecided yet
- * @version 20100111
+ * @description: My personal notes on git
+ * @author: Xie, Wei < XieConnect (at) gmail.com >
+ * @license: Undecided yet
+ * @version: 20100121
  */
 
 
-** everyday git work
+** everyday git
   mkdir git_test 先为git建一个文件夹
   cd git_test
-  git init  初始化版本库
-  echo 'hello git' > hello  建一个文件
-  echo 'city' > hangzhou  再建一个文件
-  git add hangzhou hello  添加到索引中去 (直接 git add . 也可以)
-  git status  可以查看到底有哪些更新
-  git rm --cached hello  从索引中“删除”hello (untrack)
+  git init  初始化版本库 (注：如果架git服务器，则应加上--bare参数)
+  echo "hello git" > hello  建一个文件
+  echo "city" > hangzhou  再建一个文件
+  git add hangzhou hello  添加进版本库索引 (或直接 git add .或git add *)
+  git status  可以查看当前到底有哪些更新
+  git rm --cached hello 从索引中“删除”hello (untrack)
   git rm -f hello 直接硬删除文件(force)
   git commit -m 'This is the commit message'
-  git commit -a -m 'The message'  加参数a可以省掉烦人的git add步骤
+  git commit -am 'The message'  加参数a可以省掉烦人的git add步骤
 
-  git pull --rebase 可以省后续的merge（有时候会报错.用如下三步解决：）
+  #本地版本新修改时，如果直接git pull,到时候服务器上会出现烦人的merge提示
+  #解决办法如下：
+  git fetch
+  git rebase origin
+  #上面命令出现conflicts时，操作会暂停。请手动修改冲突文件：
+  git update-index
+  git rebase --continue #让操作继续进行
+  git rebase --skip  #忽略某冲突
+  使用下面命令会放弃rebase操作
+  git rebase --abort
+
+  #前两条命令也可以全并成如下的：
+  git pull --rebase 
+  #有时候会报错.用如下三步解决:
 
   git stash
   git pull --rebase
@@ -29,51 +42,61 @@
 ** git全局设置(这一步本来应该放在最开头)
   git config --global user.name 'Xie, Wei'
   git config --global user.email 'bla@bla.com'
+  git config -l  列出所有配置信息
+  #配置可以在.gitconfig中找到（自己的home目录或者项目根目录下
 
-* 分支
-  git branch my_branch  新建一个分支(必须在有一个commit后才能新建，否则提示not a valid object name)
+** 分支
+  git branch my_branch  新建一个分支(须在有一个commit后才能新建，否则提示not a valid object name)
   git checkout my_branch 把刚建的分支签出准备工作了
   git branch -d my_branch  删除前会检查本分支中的修改有没有合并到master中
   git branch -D my_branch  直接删除一个
   git checkout master  回到主分支
-  git merge my_branch  在把其它分支中的内容合并到主分支中
+  git merge my_branch  在把其它分支中的内容合并到当前分支中
+  git diff my_branch master  查看两个分支的差异
 
 **
-  git clone /path/to/new/repo  复制一个远程库。注意：复制命令会自动保存远程的地址，这样下次可以直接pull什么的而不必指明远程地址。
+  git clone /path/to/new/repo  复制一个远程库。注意：复制命令会自动保存远程的地址origin，这样下次可以直接pull什么的而不必指明远程地址。
   git config --get remote.origin.url  可以显示远程的地址。也可以用git config -l查看所有的配置项。
-  git pull /path/to/changes  把原库中的修改抓回来
+  git config -l  列出所有配置
+  git pull /path/to/changes  把远程库中的修改抓回来并合并（fetch+merge）
+
   git fetch /path/to/changes  这个与上面的类似，不过他主要是看看远程到底有没有值得pull的修改
   git remote add remote_repo /path/to/remote_repo 这个相当于为后面的远程地址加一个快捷方式。可以这样使用：
   git pull remote_repo
+  git push remote_repo master  提交到远程库的master分支中
 
-** git faqs
+** git trouble-shooting
 # fatal: remote origin already exists.
-git remote rm origin
+  主要是多次为origin赋值所致.解决如下：
+  git remote rm origin
+  或者直接修改.gitconfig文件
 
-** The server side
-Setting up a git server (Wow! Another GitHub!) on Ubuntu can be very simple.
+
+** git server
+  自己架一个git服务器
   # Server side
   sudo apt-get install git-core (install necessary git stuff)
-  sudo adduser git (user used for git-ting)
+  sudo adduser git (user used by the program git)
 
-  # Client side
-  ssh git@REMOTE_SERVER  (login to your server)
   mkdir example.git  (create a directory to hold your project)
-  cd example.git
+  cd example.git (your source code will be stored here)
   git --bare init  (--bare help ommit .git files)
 
   # Client side again
-  mkdir example  (on your LOCAL machine)
-  cd example
+  ssh git@REMOTE_SERVER  (先测试一下远程服务器有没有设置好)
+
+  mkdir local_example (local project directory)
+  cd local_example
   git init
   touch README  (sample files)
-  git commit -a -m 'first git commit'
+  git commit -am 'first git commit'
   git remote add origin git@REMOTE_SERVER:example.git
   git push origin master
-
-That's all needed for setting up a git server on your Ubuntu box. You will soon check out if the files are truly stored onto the git server machine. Try the following in another new directory:
+  
+  #想看看到底源码有没有提交到服务器上？在一个新目录中：
   git clone git@REMOTE_SERVER:example.git
 
 
-** Useful References
-  www.gitready.com  lots of git tips
+
+** References
+  www.gitready.com (lots of git tips)

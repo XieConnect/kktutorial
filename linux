@@ -1,4 +1,18 @@
-== Linux administration hacks
+/**
+ * === Linux Administration Notes ===
+ * @description: Linux administration. Refer to README for details
+ */
+
+
+## 几个很实用的命令
+apropos pdf  (找出与pdf相关的软件)
+pgrep -lu myuser firefox (列出用户myuser的所有叫firefox的进程号)
+
+
+## iBus不稳定
+ps aux | grep ibus  找出所有iBus进程
+kill -9 xxxx yyyy  杀掉相关进程
+ibus-daemon &  再启动ibus即可
 
 ## 转换编码
 iconv -f gbk -t utf8 in_file > out_file
@@ -8,7 +22,7 @@ The following will act like "mv test_dev test" but without deleting the original
 cp test_dev/* test
 
 ## vim notes
-# I am not the original author. Please refer to this website for more info.: http://oss.lzu.edu.cn/modules/newbb/viewtopic.php?topic_id=1971&forum=6
+# Origin: http://oss.lzu.edu.cn/modules/newbb/viewtopic.php?topic_id=1971&forum=6
 
 读本文之前请注意：
 1. 本文的目标是提供一些vim的使用技巧，利用这些技巧可以提高vim的操作效率。部分技巧在vi上也可以使用，但是现在基本上都是用vim了。
@@ -363,7 +377,5 @@ map Y y$ 让 Y 和 D 一样, 要不然 Y 的本意和 yy 一样.
 . 重复上次编辑命令.
 :g/^/exec "s/^/".strpart(line(".")." ", 0, 4) 在行首插入行号
 :runtime! syntax/2html.vim 转换 txt 成 html, 会按照你的颜色配置来转
-
-
 
 本文来自ChinaUnix博客，如果查看原文请点：http://blog.chinaunix.net/u3/94705/showart_1985855.html

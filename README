@@ -8,13 +8,13 @@
 
 
 ** linux
-  This is a basic linux introduction based on the Ubuntu and Debian official documents.
+  Linux administration notes. Ubuntu is the local development environment.
 
 ** ruby_on_rails
   Let's ride on Ruby on Rails
 
 ** git_basics
-  git is an extremely popular VCS among Ruby gurus.
+  git is an extremely popular SCM (Source Code Management) tool.
 
 ** windows
-  Sometimes I have to develop (or even deploy) Ruby on Rails apps under the Windows(R) platform.
+  Sometimes I have to develop/deploy Ruby on Rails applications under the Windows(R) platform.
