@@ -1,12 +1,34 @@
 /**
  * === Linux Administration Notes ===
  * @description: Linux administration. Refer to README for details
+ * @license: Undecided yet
+ * @author: Xie, Wei < XieConnect (at) gmail.com >
  */
 
+## Modify SSH welcome message
+/etc/motd  (内容在该文件中，不过似乎改此处无用，该文件好像是每次由系统自动生成)
+/etc/motd.tail  （这里是提示消息的尾巴，改动这里是可以有显示的）
+注意：在Ubuntu Server中改动上面两个都没有用，因为所有消息都是登录时实时生成的。
+
+另有一个小工具figlet，可以根据给定字体生成由ASCII码组成的大型提示消息
+figlet mymessage -cf big (c表示居中显示，f用于指定字体，big和standard不错，还有个banner也不错)
+
+## Ubuntu 9.10安装网络电视(SopCast Player)
+sudo add-apt-repository ppa:jason-scheunemann/ppa  (先加额外源)
+sudo apt-get update
+wget http://sopcast-player.googlecode.com/~~~  (需要先下载sp-auth deb包)
+sudo dpkg -i sp-auth~~~.deb  安装sp-auth
+注意，上两步后也可以同时把sopcast-player下下来安装。或者如下安装也可；
+sudo apt-get install sopcast-player
+
+总结：加了一个第三方的库少了N多麻烦。不然的话直接安装sp-auth和sopcast-player会有一系列的依赖错误（vlc, libstdc++5, ia32-libs等）
+
+另外，有好几个用类似的项目，比较好的有：gmlive和qsopcast
 
 ## 几个很实用的命令
 apropos pdf  (找出与pdf相关的软件)
 pgrep -lu myuser firefox (列出用户myuser的所有叫firefox的进程号)
+
 
 
 ## iBus不稳定

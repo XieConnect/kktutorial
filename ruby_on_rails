@@ -1,3 +1,15 @@
-**
+/**
+ *
+ */
+
   # gem install webrat (Ubuntu上必须先装libxslt1-dev libxml2-dev)
   # gem install cucumber
+
+=== rspec on rails ===
+## shoulda matchers are at: http://rdoc.info/rdoc/thoughtbot/shoulda/Shoulda/ActiveRecord/Matchers.html#allow_mass_assignment_of-instance_method
+
+* validate_presence_of :name
+* ensure_length_of(:password).is_at_least(3).is_at_most(100)  #好像没有validate_length_of方法
+* allow_mass_assignment_of :role
+* stub!  #用于虚构Model数据，用于controller中
+* allow_value('itsucks').for(:name)
