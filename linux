@@ -43,7 +43,13 @@ iconv -f gbk -t utf8 in_file > out_file
 The following will act like "mv test_dev test" but without deleting the original test_dev :
 cp test_dev/* test
 
+
+i am really stupid
+
+
 ## vim notes
+ESC = Ctrl + [
+
 # Origin: http://oss.lzu.edu.cn/modules/newbb/viewtopic.php?topic_id=1971&forum=6
 
 读本文之前请注意：
@@ -401,3 +407,20 @@ map Y y$ 让 Y 和 D 一样, 要不然 Y 的本意和 yy 一样.
 :runtime! syntax/2html.vim 转换 txt 成 html, 会按照你的颜色配置来转
 
 本文来自ChinaUnix博客，如果查看原文请点：http://blog.chinaunix.net/u3/94705/showart_1985855.html
+
+
+
+# lshw  查看硬件信息（非常详细 -short 短点的信息）
+  sysstat
+  uname -a  体系结构内核版本
+  /proc/cpuinfo
+  /proc/meminfo
+
+# 截屏
+import my_screenshot.jpg  输入后会有鼠标选择范围
+sleep 5; import my_screenshot.jpg  先暂停5妙
+import -frame my_screenshot.jpb  截窗口
+import -window root my_screenshot.jpg  全屏
+
+# 对已经打开的两文件diff
+:windo difft

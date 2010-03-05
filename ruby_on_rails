@@ -13,3 +13,22 @@
 * allow_mass_assignment_of :role
 * stub!  #用于虚构Model数据，用于controller中
 * allow_value('itsucks').for(:name)
+
+# capistrano
+sudo gem install capistrano  #(install)
+capify .  #(在当前项目目录中运行，会生成Capfile和config/deploy.rb)
+vim config/deploy.rb  #(修改的东西见模板.deploy_to指向 /var/www/kkshop)
+其中，远程服务器的/var/www/rails_sites/kkshop的结构如下：
+-kkshop
+  -app
+  -config
+  -db
+  -public
+  
+passenger指向：/var/www/kkshop/public
+
+cap deploy:setup
+cap deploy:check
+cap deploy:cold
+
+cap deploy
