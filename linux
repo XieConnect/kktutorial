@@ -5,6 +5,61 @@
  * @author: Xie, Wei < XieConnect (at) gmail.com >
  */
 
+## openbox tips
+configuration is at /etc/xdg/openbox  (menu.xml for menus, rc.xml for keyboard bindings, autostart.sh for programs)
+一般把上面的配置文件复制到~/.config/openbox/中去，防止升级时被覆盖
+
+## useful tips
+(实现对当前目录文件列表的共享访问。8080是自定义商品，默认为8000:)
+python -m SimpleHTTPServer 8080  
+
+
+# switch terminals
+Ctrl+Alt+F5等, 加F7为桌面
+
+## volumn control in openbox
+gnome-volumn-control  (be sure to uncheck the Mute checkbox)
+alsamixer  (won't work under my openbox)
+
+## set gvim window size
+add the following to /etc/vim/vimrc  :
+set lines=70 columns=110
+
+
+## Rails on Ubuntu
+sudo apt-get install build-essential  (install necessary tools for building)
+sudo apt-get install ruby rubygems ruby1.8-dev libsqlite3-dev
+sudo gem sources -a "http://gemcutter.org"  (gemcutter is a faster gem hosting than rubyforge)
+sudo gem install rails -v 2.3.4
+
+(add /var/lib/gems/1.8/bin to your PATH environment variable:)
+export PATH=$HOME/bin:/var/lib/gems/1.8/bin:$PATH
+then you should install databases like mysql.
+
+Here is a list of tools that might be needed when installing Rails:
+sudo apt-get install ruby ri rdoc mysql-server libmysql-ruby ruby1.8-dev irb1.8 libdbd-mysql-perl libdbi-perl libmysql-ruby1.8 libmysqlclient15off libnet-daemon-perl libplrpc-perl libreadline-ruby1.8 libruby1.8 mysql-client-5.1 mysql-common mysql-server-5.1 rdoc1.8 ri1.8 ruby1.8 irb libopenssl-ruby libopenssl-ruby1.8 libhtml-template-perl mysql-server-core-5.1 libmysqlclient16 libreadline5 psmisc
+
+## generating ssh keys
+ssh-keygen -t rsa -C "XXX@xxx.com"
+and then follow the prompt
+~/.ssh/id_rsa.pub  (location of your key)
+
+## If you see this warning it means we have a little more work to do.
+
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+ LANGUAGE = (unset),
+ LC_ALL = (unset),
+ LANG = "en_US.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to the standard locale ("C").
+
+
+Let's go ahead and set your locale now. (I'm using en-US in this example.. feel free to substitute for your region)
+
+sudo locale-gen en_US.UTF-8
+sudo /usr/sbin/update-locale LANG=en_US.UTF-8
+
 ## Modify SSH welcome message
 /etc/motd  (内容在该文件中，不过似乎改此处无用，该文件好像是每次由系统自动生成)
 /etc/motd.tail  （这里是提示消息的尾巴，改动这里是可以有显示的）
