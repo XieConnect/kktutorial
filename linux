@@ -1,13 +1,31 @@
-/**
+**
  * === Linux Administration Notes ===
  * @description: Linux administration. Refer to README for details
  * @license: Undecided yet
  * @author: Xie, Wei < XieConnect (at) gmail.com >
  */
 
-## openbox tips
+## update grub2
+edit /etc/default/grub
+afterward, run command update-grub to auto update /boot/grub/grub.cfg
+
+## 打包命令
+tar cvzf backup.tar.gz ~/music  (注意先写目标名，再写待打包的目录)
+
+## ls 以MB为单位
+ls -h ~/music  (显示时无单位的是byte，有Ｋ的是KB，有M是MB )
+
+##openbox tips
 configuration is at /etc/xdg/openbox  (menu.xml for menus, rc.xml for keyboard bindings, autostart.sh for programs)
 一般把上面的配置文件复制到~/.config/openbox/中去，防止升级时被覆盖
+
+## logout and reboot in openbox
+
+logout: killall openbox
+reboot: sudo reboot
+shutdown: sudo poweroff
+
+Refer to my self-maintained script in /usr/bin/kshutdown for a graphical selector(zenity must be installed)
 
 ## useful tips
 (实现对当前目录文件列表的共享访问。8080是自定义商品，默认为8000:)
