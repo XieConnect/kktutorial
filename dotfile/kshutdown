@@ -1,0 +1,20 @@
+#!/bin/bash
+#shutdown selection box for openbox session
+ans=$(zenity --list --title "Make a choice" --text "Your order now?"\
+--radiolist --column "Choice" --column "Action" \
+reboot reboot logout logout poweroff poweroff);
+echo $ans
+case $ans in
+'reboot')
+echo "reboot"
+sudo reboot
+;;
+'logout')
+echo "logout"
+killall openbox
+;;
+'poweroff')
+echo "poweroff"
+sudo poweroff
+;;
+esac
