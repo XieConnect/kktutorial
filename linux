@@ -5,6 +5,44 @@
  * @author: Xie, Wei < XieConnect (at) gmail.com >
  */
 
+## Ruby on Rails
+if you have previously installed ruby-1.9, please delete it by:
+  pacman -R ruby
+then we'll install ruby1.8 :
+  yaourt -S ruby1.8
+  yaourt -S rubygems1.8
+  pacman -S mysql
+  gem install mysql
+  pacman -S sqlite3
+  gem install sqlite3-ruby --with-sqlite3-include=/usr/include --with-sqlite3-lib=/usr/lib
+
+
+## show correct local time
+reset the system time based on current timezone
+hwclock --systz
+
+## git completion
+save the following file as ~/.git-completion.bash:
+http://repo.or.cz/w/git.git/blob_plain/HEAD:/contrib/completion/git-completion.bash
+
+and then add the following into .bashrc:
+source ~/.git-completion.bash
+
+## how to do auto-mount in pcmanfm
+add the following to /etc/dbus-1/system.d/hal.conf :
+
+<policy group="power">
+   <allow send_interface="org.freedesktop.Hal.Device.SystemPowerManagement"/>
+   <allow send_interface="org.freedesktop.Hal.Device.LaptopPanel"/>
+ </policy>
+
+ <policy group="storage">
+   <allow send_interface="org.freedesktop.Hal.Device.Volume"/>
+   <allow send_interface="org.freedesktop.Hal.Device.Volume.Crypto"/>
+ </policy>
+
+and then restart hal and pcmanfm
+
 ## update grub2
 edit /etc/default/grub
 afterward, run command update-grub to auto update /boot/grub/grub.cfg
