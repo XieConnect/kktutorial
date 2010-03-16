@@ -5,6 +5,9 @@
  * @author: Xie, Wei < XieConnect (at) gmail.com >
  */
 
+## modify password in mysql
+mysqladmin -u root PASSWORD 'your_password'  # root为用户名，PASSWORD为命令
+
 ## Ruby on Rails
 if you have previously installed ruby-1.9, please delete it by:
   pacman -R ruby
