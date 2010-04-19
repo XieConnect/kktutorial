@@ -1,9 +1,31 @@
 **
  * === Linux Administration Notes ===
- * @description: Linux administration. Refer to README for details
- * @license: Undecided yet
- * @author: Xie, Wei < XieConnect (at) gmail.com >
+ * @description Linux administration. Refer to README for details
+ * @license Undecided yet
+ * @author Wei Xie < XieConnect (at) gmail.com >
  */
+
+## error running ruby on rails server
+- Error: libssl.so.0.9.8: cannot open shared object file: No such file or directory
+openssl.so
+
+- Solution:
+install openssl-compatibility via yaourt
+
+## lock screen in console: vlock
+
+## converting encoding
+enca is a more effective converting tool than iconv
+enca -L 当前语言 -x 目标编码 文件名
+eg. enca -L zh_CN -x gbk *  #当前目录下所有文件转为gbk
+
+附上iconv的用法：
+iconv -f gb18030 -t utf-8 file1.txt > file2.txt
+
+VIM can help accomplish the same task:
+(in VIM command mode) :set fileenconding=gbk
+check out the result by execute :set fileenconding
+
 
 ## modify password in mysql
 mysqladmin -u root PASSWORD 'your_password'  # root为用户名，PASSWORD为命令
