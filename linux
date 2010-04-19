@@ -555,8 +555,10 @@ map Y y$ 让 Y 和 D 一样, 要不然 Y 的本意和 yy 一样.
 # 截屏
 import my_screenshot.jpg  输入后会有鼠标选择范围
 sleep 5; import my_screenshot.jpg  先暂停5妙
-import -frame my_screenshot.jpb  截窗口
+import -frame my_screenshot.jpg  截窗口
 import -window root my_screenshot.jpg  全屏
+
+Besides, gimp also offers the functionality of printing screenshot
 
 # 对已经打开的两文件diff
 :windo difft
