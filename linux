@@ -5,6 +5,12 @@
  * @author Wei Xie < XieConnect (at) gmail.com >
  */
 
+## remote desktop (connect to Windows from Linux)
+rdesktop -a 16 172.29.142.19
+available options:
+-f  full screen
+-a  display color of remote machine
+
 ## ebook in VIM
 first convert file from utf-8 to gbk
 then set proper line ending (fileformat)
