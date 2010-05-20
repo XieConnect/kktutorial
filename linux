@@ -5,6 +5,13 @@
  * @author Wei Xie < XieConnect (at) gmail.com >
  */
 
+## Ruby on Rails install guide
+ required packages: build-essential libopenssl-ruby ruby rubygems ruby1.8-dev  libsqlite3-dev
+ then install the following with gem:
+ rails sqlite3-ruby
+ and set up env: add to ~/.bashrc
+ export PATH=/var/lib/gems/1.8/bin:$PATH
+
 ## remote desktop (connect to Windows from Linux)
 rdesktop -a 16 172.29.142.19
 available options:
