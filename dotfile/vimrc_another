@@ -1,0 +1,26 @@
+set nocompatible
+set history=800
+set mouse=a
+set number
+set background=dark
+syntax on
+set autoindent
+set smartindent
+set cindent
+
+set softtabstop=2
+set tabstop=2
+set shiftwidth=2
+set hlsearch
+set incsearch
+set ignorecase
+
+set fileencoding=utf-8
+set fileencodings=utf-8,gbk,gb2312,cp936,ucs-bom
+
+map <F5> :NERDTreeToggle<CR>
+imap <F5> <ESC>:NERDTreeToggle<CR>
+
+filetype on
+filetype plugin on
+filetype indent on
