@@ -5,6 +5,27 @@
  * @author Wei Xie < XieConnect (at) gmail.com >
  */
 
+# install java
+ sudo add-apt-repository "deb http://archive.canonical.com/ lucid partner"
+ sudo apt-get update
+ sudo apt-get install sun-java6-jdk
+
+## gpg on Linux (package: gnupg)
+ gpg --gen-key
+ follow the instructions and finish generating the key
+ gpg --list-keys    #will list all keys(keyID will be the number after the slash /)
+	gpg --armor --output mykey.asc --export bla@bla.com  #export keys
+	gpg --import outerkey.asc
+	gpg --keyserver pgp.mit.edu --send-key 12345  ##upload you key to public server. 12345 is the keyID
+	gpg --keyserver pgp.mit.edu --search-keys bla@bla.com  ##search for public keys
+
+	now we will test encryption with sample.log file
+	gpg -ea -r 12345 sample.log  #12345 is keyID and the generated file would be sample.log.asc
+	now comes to decryption
+	gpg -o sample_output.log -d sample.log.asc  #sample_output.log is the file you want
+
+	there is a very excellent Chinese article talking about gpg at: http://www.online990.com/htm/2009728/50.htm
+
 ## Ruby on Rails install guide
  required packages: build-essential libopenssl-ruby ruby rubygems ruby1.8-dev  libsqlite3-dev
  then install the following with gem:
