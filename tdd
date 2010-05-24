@@ -1,0 +1,4 @@
+## Cucumber
+sudo gem install cucumber-rails  # dependency: cucumber
+ruby script/generate cucumber --spork  # spork starts Cucumber faster
+sudo rake RAILS_ENV=cucumber gems:install  #install new dependencies

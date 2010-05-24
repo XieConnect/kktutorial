@@ -602,3 +602,16 @@ Besides, gimp also offers the functionality of printing screenshot
 
 # 对已经打开的两文件diff
 :windo difft
+
+## upgrade rubygems in Ubuntu
+sudo gem install update_rubygems
+sudo /var/lib/gems/1.8/bin/update_rubygems
+gem -v
+
+## set up Integrity on Heroku
+git clone git://github.com/sr/integrity-heroku
+cd integrity-heroku
+heroku create
+git push heroku master
+heroku rake db
+heroku open
