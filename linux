@@ -615,3 +615,12 @@ heroku create
 git push heroku master
 heroku rake db
 heroku open
+
+## rename, delete file with NERDTree in VIM
+enter m on a file node in NERDTree and choose appropriate choices:
+m: move (and rename as well)
+d: delete
+
+## ssh with keys
+copy local public key to remote server:
+scp ~/.ssh/id_rsa.pub username@remotehost:~/.ssh/authorized_keys
