@@ -624,3 +624,14 @@ d: delete
 ## ssh with keys
 copy local public key to remote server:
 scp ~/.ssh/id_rsa.pub username@remotehost:~/.ssh/authorized_keys
+
+## cucumber feature test
+For buttons: click_button('Create')  or
+When I press "Create"  (which is covered by webrat)
+
+For page and links:
+When I go to the homepage
+And I follow "New Agenda"
+And I fill in "name" with "Dodo"
+And I press "Submit"
+Then I should see "Thank you"
