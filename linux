@@ -626,6 +626,8 @@ copy local public key to remote server:
 scp ~/.ssh/id_rsa.pub username@remotehost:~/.ssh/authorized_keys
 
 ## cucumber feature test
+All features test should not have direct model access (internal logic). Instead they should test integration
+
 For buttons: click_button('Create')  or
 When I press "Create"  (which is covered by webrat)
 
@@ -635,3 +637,6 @@ And I follow "New Agenda"
 And I fill in "name" with "Dodo"
 And I press "Submit"
 Then I should see "Thank you"
+
+## spec tips
+Keep the scope of testing as small as possible to test in isolation
