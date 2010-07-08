@@ -640,3 +640,9 @@ Then I should see "Thank you"
 
 ## spec tips
 Keep the scope of testing as small as possible to test in isolation
+
+## disable list directory in Apache on Ubuntu
+The funny thing is that, editing neither /etc/apache2/httpd.conf nor ***/apache2.conf will help. I customized the conf for certain websites and it works (edit ***/site-enabled/***).
+Add the following under the <Directory> section (the '-' means 'remove'):
+
+Options -Indexes
