@@ -646,3 +646,24 @@ The funny thing is that, editing neither /etc/apache2/httpd.conf nor ***/apache2
 Add the following under the <Directory> section (the '-' means 'remove'):
 
 Options -Indexes
+
+## do not show nVidia logo at system startu
+First backup the xorg.conf:
+sudo cp /etc/X11/xorg.conf /etc/X11/xorg.conf_backup
+Then search for:
+Section "Device"
+Driver "nvidia"
+
+Add the following inside the Section block:
+Option "NoLogo"
+
+## get chrome to display Chinese characters more clearly
+edit file: ~/.config/google-chrome/Default/Preferences  # or may be chromium instead of google-chrome
+search for the "webkit" section and add the following:
+"minimum_font_size": 16,
+"minimum_logical_font_size": 16
+
+And then set your default font as the followng:
+serif 16
+serif 16
+Monospace 13
