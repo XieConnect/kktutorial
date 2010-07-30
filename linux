@@ -667,3 +667,27 @@ And then set your default font as the followng:
 serif 16
 serif 16
 Monospace 13
+
+## mannully edit git rebase
+.git/rebase-merge/git-rebase-todo
+
+## ubuntu software
+software-center
+sudo synaptic
+
+## install 32bit package on a 64bit system
+sudo dpkg -i --force-architecture Adb*.deb
+after the installation, run acroread to start.
+
+## tab in VIM
+set expandtab  "let VIM auto expand tabs to spaces
+set tabstop=8  "how many columns each tab consumes
+:retab  "convert the existing file to the right tab indention
+
+## solutions to error in configuration defaults for Gnome Power Manager
+# sudo dpkg --configure -a
+# sudo mkdir /var/lib/gconf/default  (default or defaults?)
+# sudo apt-get --reinstall install gnome-power-manager
+# sudo apt-get --reinstall install ubuntu-desktop
+# sudo chmod 0777 /tmp
+# sudo apt-get clean
