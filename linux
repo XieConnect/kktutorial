@@ -5,6 +5,24 @@
  * @author Wei Xie < XieConnect (at) gmail.com >
  */
 
+## tmux
+tmux ls  #list all sessions
+tmux attach -t session-id
+tmux new -s session-name
+(The following commands should be preceded with the action key)
+d  - detach session
+c  - create new window
+n/l  - next/last window
+&  - kill current window
+%  - add vertical pane to the right
+arrows  -- move cursors
+!  - break current pane into new window
+x  - kill current pane
+[  - copy mode
+]  - past copied text
+?  - show key bindings
+
+
 # install java
  sudo add-apt-repository "deb http://archive.canonical.com/ lucid partner"
  sudo apt-get update
